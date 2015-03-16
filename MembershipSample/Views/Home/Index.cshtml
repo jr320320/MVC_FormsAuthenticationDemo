@@ -1,0 +1,32 @@
+﻿@using MembershipSample.Helper
+@{
+    ViewBag.Title = "Home Page";
+    
+}
+
+@*<div class="alert alert-info">
+    這是登入者的User Data 【@UserHelper.GetUserData()】
+</div>*@
+<div class="row">
+    <div class="col-md-12">
+        @*@using (Html.BeginForm("Login", "Home"))
+        {
+            <input type="text" name="account" class="form-control" />
+            <br/>
+            @Html.Password("password", null, new { @class = "form-control" })
+            <br/>
+            <button>登入</button>
+        }*@
+        <form action="/Home/Login" method="post">
+            <br />
+            <div>Username: <input name="username" type="text" /></div>
+            <br />
+            <div>Password : @Html.Password("password")</div>
+            <br />
+            <div><input type="submit" value="Login" /></div>
+            <br />
+        </form>
+    </div>
+</div>
+<br/>
+<a href="@Url.Action("Secure")" >此連結需登入才可進入</a>
